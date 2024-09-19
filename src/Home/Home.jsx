@@ -1,12 +1,4 @@
-import GooglePopup from "@/Authentication/GooglePopup";
-
-
 const Home = () => {
-  return (
-    <>
-    <GooglePopup></GooglePopup>
-    </>
-  );
+  return <h1>hi</h1>;
 };
-
 export default Home;
