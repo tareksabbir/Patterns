@@ -6,7 +6,7 @@ const SignUp = () => {
           <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+              src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&q=100"
               className="absolute inset-0 object-cover w-full h-full"
             />
           </aside>
@@ -15,7 +15,19 @@ const SignUp = () => {
             <div className="max-w-xl lg:max-w-3xl">
               <a className="block text-blue-600" href="#">
                 <span className="sr-only">Home</span>
-                <svg fill="none" height="48" viewBox="0 0 42 48" width="42" xmlns="http://www.w3.org/2000/svg"><circle cx="27.5" cy="23.5" fill="#7839ee" r="14.5"/><path d="m14.7196 16.6448c-1.1618-.4174-2.4141-.6448-3.7196-.6448-6.07513 0-11 4.9249-11 11s4.92487 11 11 11h16.5c-8.0081 0-14.5-6.4919-14.5-14.5 0-2.4797.6224-4.814 1.7196-6.8552z" fill="#2e90fa"/></svg>
+                <svg
+                  fill="none"
+                  height="48"
+                  viewBox="0 0 42 48"
+                  width="42"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="27.5" cy="23.5" fill="#7839ee" r="14.5" />
+                  <path
+                    d="m14.7196 16.6448c-1.1618-.4174-2.4141-.6448-3.7196-.6448-6.07513 0-11 4.9249-11 11s4.92487 11 11 11h16.5c-8.0081 0-14.5-6.4919-14.5-14.5 0-2.4797.6224-4.814 1.7196-6.8552z"
+                    fill="#2e90fa"
+                  />
+                </svg>
               </a>
 
               <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
@@ -23,7 +35,8 @@ const SignUp = () => {
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
-                this is a practice firebase auth form where a person can register there account via email and other social media account 
+                This is a practice firebase auth form where a person can
+                register there account via email and other information
               </p>
 
               <form action="#" className="grid grid-cols-6 gap-6 mt-8">
@@ -39,7 +52,7 @@ const SignUp = () => {
                     type="text"
                     id="FirstName"
                     name="first_name"
-                    className="w-full mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
                   />
                 </div>
 
@@ -55,7 +68,7 @@ const SignUp = () => {
                     type="text"
                     id="LastName"
                     name="last_name"
-                    className="w-full mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
                   />
                 </div>
 
@@ -72,7 +85,7 @@ const SignUp = () => {
                     type="email"
                     id="Email"
                     name="email"
-                    className="w-full mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
                   />
                 </div>
 
@@ -89,7 +102,7 @@ const SignUp = () => {
                     type="password"
                     id="Password"
                     name="password"
-                    className="w-full mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
                   />
                 </div>
 
@@ -105,7 +118,7 @@ const SignUp = () => {
                     type="password"
                     id="PasswordConfirmation"
                     name="password_confirmation"
-                    className="w-full mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
                   />
                 </div>
 
@@ -115,7 +128,7 @@ const SignUp = () => {
                       type="checkbox"
                       id="MarketingAccept"
                       name="marketing_accept"
-                      className="bg-white border-gray-200 rounded-md shadow-sm size-5"
+                      className="bg-white border-gray-300 rounded-md shadow-sm size-5"
                     />
 
                     <span className="text-sm text-gray-700">
