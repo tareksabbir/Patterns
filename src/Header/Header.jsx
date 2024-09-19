@@ -3,8 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <div className="bg-white lg:pb-12">
-        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div className="bg-white  lg:pb-12">
+        <div className="px-4 mx-auto max-w-screen-2xl md:px-8">
           <header className="flex items-center justify-between py-4 md:py-8">
             <a
               href="/"
@@ -31,7 +31,7 @@ const Header = () => {
               <NavLink>
                 <Link
                   href="#"
-                  className=" font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   Home
                 </Link>
@@ -39,7 +39,7 @@ const Header = () => {
               <NavLink>
                 <Link
                   href="#"
-                  className=" font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   About
                 </Link>
@@ -47,7 +47,7 @@ const Header = () => {
               <NavLink>
                 <Link
                   href="#"
-                  className=" font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   Contact
                 </Link>
@@ -55,7 +55,7 @@ const Header = () => {
               <NavLink>
                 <Link
                   href="#"
-                  className=" font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   Documentation
                 </Link>
@@ -65,13 +65,13 @@ const Header = () => {
             <div className="-ml-8 hidden flex-col gap-2.5 sm:flex-row sm:justify-center lg:flex lg:justify-start">
               <Link
                 href="#"
-                className="inline-block rounded-lg px-4 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:text-indigo-500 focus-visible:ring active:text-indigo-600 md:text-base"
+                className="inline-block px-4 py-3 text-sm font-semibold text-center text-gray-500 transition duration-100 rounded-lg outline-none ring-indigo-300 hover:text-indigo-500 focus-visible:ring active:text-indigo-600 md:text-base"
               >
                 Sign in
               </Link>
               <Link
-                href="#"
-                className=" text-sm font-semibold text-gray-500  border rounded-xl px-5 flex items-center "
+                to={"/sign_up"}
+                className="flex items-center px-5 text-sm font-semibold text-gray-500 border rounded-xl"
               >
                 Sign up
               </Link>
@@ -83,7 +83,7 @@ const Header = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
