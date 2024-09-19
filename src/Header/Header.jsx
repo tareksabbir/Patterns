@@ -1,9 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  
   return (
     <div>
-      <div className="bg-white  lg:pb-12">
+      <div className="bg-white lg:pb-12">
         <div className="px-4 mx-auto max-w-screen-2xl md:px-8">
           <header className="flex items-center justify-between py-4 md:py-8">
             <a
@@ -28,38 +29,38 @@ const Header = () => {
             </a>
 
             <nav className="hidden gap-12 lg:flex">
-              <NavLink>
+      
                 <Link
                   href="#"
                   className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   Home
                 </Link>
-              </NavLink>
-              <NavLink>
+           
+          
                 <Link
                   href="#"
                   className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   About
                 </Link>
-              </NavLink>
-              <NavLink>
+            
+  
                 <Link
                   href="#"
                   className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   Contact
                 </Link>
-              </NavLink>
-              <NavLink>
+           
+             
                 <Link
                   href="#"
                   className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
                 >
                   Documentation
                 </Link>
-              </NavLink>
+ 
             </nav>
 
             <div className="-ml-8 hidden flex-col gap-2.5 sm:flex-row sm:justify-center lg:flex lg:justify-start">
