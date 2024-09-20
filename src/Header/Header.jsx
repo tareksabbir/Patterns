@@ -1,7 +1,9 @@
+import { UserContext } from "@/Context/SocialSignUp";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  
+  const { user, handleSignOut } = useContext(UserContext);
   return (
     <div>
       <div className="bg-white lg:pb-12">
@@ -29,50 +31,48 @@ const Header = () => {
             </a>
 
             <nav className="hidden gap-12 lg:flex">
-      
-                <Link
-                  href="#"
-                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                >
-                  Home
-                </Link>
-           
-          
-                <Link
-                  href="#"
-                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                >
-                  About
-                </Link>
-            
-  
-                <Link
-                  href="#"
-                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                >
-                  Contact
-                </Link>
-           
-             
-                <Link
-                  href="#"
-                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
-                >
-                  Documentation
-                </Link>
- 
+              <Link
+                href="#"
+                className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              >
+                Home
+              </Link>
+
+              <Link
+                href="#"
+                className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              >
+                About
+              </Link>
+
+              <Link
+                href="#"
+                className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              >
+                Contact
+              </Link>
+
+              <Link
+                href="#"
+                className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              >
+                Documentation
+              </Link>
             </nav>
 
             <div className="-ml-8 hidden flex-col gap-2.5 sm:flex-row sm:justify-center lg:flex lg:justify-start">
-              <Link
-                href="#"
-                className="inline-block px-4 py-3 text-sm font-semibold text-center text-gray-500 transition duration-100 rounded-lg outline-none ring-indigo-300 hover:text-indigo-500 focus-visible:ring active:text-indigo-600 md:text-base"
-              >
-                Sign in
-              </Link>
+              {user ? (
+                <Link onClick={handleSignOut } className="px-4 py-3 text-sm font-semibold text-center text-gray-500 transition duration-100 rounded-lg outline-none ring-indigo-300 hover:text-indigo-500 focus-visible:ring active:text-indigo-600 md:text-base">
+                  Sign Out
+                </Link>
+              ) : (
+                <Link className="px-4 py-3 text-sm font-semibold text-center text-gray-500 transition duration-100 rounded-lg outline-none ring-indigo-300 hover:text-indigo-500 focus-visible:ring active:text-indigo-600 md:text-base">
+                  Sign in
+                </Link>
+              )}
               <Link
                 to={"/sign_up"}
-                className="flex items-center px-5 text-sm font-semibold text-gray-500 border rounded-xl"
+                className="flex items-center px-5 py-2 text-sm font-semibold text-gray-500 border rounded-xl"
               >
                 Sign up
               </Link>

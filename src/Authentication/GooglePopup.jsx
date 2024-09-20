@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { UserContext } from "@/Context/GoogleSignUp";
+import { UserContext } from "@/Context/SocialSignUp";
 import { useContext } from "react";
 
 const GooglePopup = () => {

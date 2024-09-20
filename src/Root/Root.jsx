@@ -1,14 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
-import GoogleSignUp from "@/Context/GoogleSignUp";
+import SocialSignUp from "@/Context/SocialSignUp";
+
+
 
 const Root = () => {
   return (
     <>
-      <GoogleSignUp>
+      <SocialSignUp>
         <Header></Header>
         <Outlet />
-      </GoogleSignUp>
+      </SocialSignUp>
     </>
   );
 };
