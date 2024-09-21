@@ -6,6 +6,7 @@ import Root from "./Root/Root";
 import Home from "./Home/Home";
 
 import PasswordEmailSignUp from "./Authentication/PasswordEmailSignUp";
+import ContextEmailMain from "./Authentication/ContextEmailMain";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/sign_up",
     element: <PasswordEmailSignUp></PasswordEmailSignUp>
+  },
+  {
+    path: "/sign_up_2",
+    element: <ContextEmailMain></ContextEmailMain>
   },
  
 ]);
