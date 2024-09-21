@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const fName = e.target.first_name.value;
+    const lName = e.target.last_name.value;
+    const name = fName+" "+ lName
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(name,email,password)
+  };
+
   return (
     <div>
       <section className="bg-white">
@@ -40,8 +50,12 @@ const SignUp = () => {
                 This is a practice firebase auth form where a person can
                 register there account via email and other information
               </p>
-
-              <form action="#" className="grid grid-cols-6 gap-6 mt-8">
+             
+              {/* form */}
+              <form
+                onSubmit={handleFormSubmit}
+                className="grid grid-cols-6 gap-6 mt-8"
+              >
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="FirstName"
@@ -54,7 +68,7 @@ const SignUp = () => {
                     type="text"
                     id="FirstName"
                     name="first_name"
-                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm border rounded-md"
                   />
                 </div>
 
@@ -70,12 +84,14 @@ const SignUp = () => {
                     type="text"
                     id="LastName"
                     name="last_name"
-                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                   className="w-full p-2 mt-1 text-sm border rounded-md"
                   />
                 </div>
 
-                <div className="col-span-6">
-                  <label
+               
+
+                <div className="col-span-6 sm:col-span-3">
+                <label
                     htmlFor="Email"
                     className="block text-sm font-medium text-gray-700"
                   >
@@ -87,10 +103,9 @@ const SignUp = () => {
                     type="email"
                     id="Email"
                     name="email"
-                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm border rounded-md"
                   />
                 </div>
-
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="Password"
@@ -104,25 +119,11 @@ const SignUp = () => {
                     type="password"
                     id="Password"
                     name="password"
-                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
+                    className="w-full p-2 mt-1 text-sm border rounded-md"
                   />
                 </div>
 
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="PasswordConfirmation"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Password Confirmation
-                  </label>
-
-                  <input
-                    type="password"
-                    id="PasswordConfirmation"
-                    name="password_confirmation"
-                    className="w-full p-2 mt-1 text-sm text-gray-700 bg-white border-gray-200 rounded-md shadow-sm"
-                  />
-                </div>
+           
 
                 <div className="col-span-6">
                   <label htmlFor="MarketingAccept" className="flex gap-4">
