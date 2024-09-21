@@ -4,7 +4,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";
 import Home from "./Home/Home";
-import SignUp from "./Authentication/BasicEmailSignUp";
+
+import PasswordEmailSignUp from "./Authentication/PasswordEmailSignUp";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +16,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+    
       
     ],
   },
   {
     path: "/sign_up",
-    element: <SignUp></SignUp>,
+    element: <PasswordEmailSignUp></PasswordEmailSignUp>
   },
+ 
 ]);
 
 createRoot(document.getElementById("root")).render(
