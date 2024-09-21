@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import app from "@/Firebase/Firebase.init";
 
-export const UserContext = createContext("gold");
+export const UserContext = createContext("");
 
 const SocialSignUp = ({ children }) => {
   const [user, setUser] = useState("");
