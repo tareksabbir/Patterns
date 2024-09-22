@@ -6,6 +6,7 @@
 
 //import Blog from "./Blog";
 
+import Banner from "./Banner";
 import Contact from "./Contact";
 import Hero from "./Hero";
 
@@ -25,7 +26,7 @@ const Home = () => {
         <GooglePopup></GooglePopup>
         <GithubPopup></GithubPopup>
       </div> */}
-
+      <Banner></Banner>
       <Hero></Hero>
       <SectionCard></SectionCard>
       <Contact></Contact>
