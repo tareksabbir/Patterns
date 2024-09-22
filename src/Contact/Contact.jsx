@@ -1,3 +1,4 @@
+import ContactForm from "./ContactForm";
 import Hero from "./Hero";
 import SectionCard from "./SectionCard";
 
@@ -125,6 +126,7 @@ const Contact = () => {
     </div>
     <Hero></Hero>
     <SectionCard></SectionCard>
+    <ContactForm></ContactForm>
     </div>
   );
 };
