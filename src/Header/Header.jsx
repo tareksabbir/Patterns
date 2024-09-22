@@ -39,10 +39,10 @@ const Header = () => {
               </Link>
 
               <Link
-                href="#"
+                to={"/product"}
                 className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
               >
-                About
+                Products
               </Link>
 
               <Link

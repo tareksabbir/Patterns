@@ -1,6 +1,7 @@
 import app from "@/Firebase/Firebase.init";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
+import cover from "../assets/cover.png";
 
 const PasswordEmailSignUp = () => {
   const auth = getAuth(app);
@@ -32,7 +33,7 @@ const PasswordEmailSignUp = () => {
           <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&q=100"
+              src={cover}
               className="absolute inset-0 object-cover w-full h-full"
             />
           </aside>

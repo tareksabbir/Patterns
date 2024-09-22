@@ -8,6 +8,7 @@ import Home from "./Home/Home";
 import PasswordEmailSignUp from "./Authentication/PasswordEmailSignUp";
 import ContextEmailMain from "./Authentication/ContextEmailMain";
 import Register from "./loginRegister/Register/Register";
+import Product from "./Product/Product";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/product",
+        element: <Product></Product>,
       },
     
       

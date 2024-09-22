@@ -1,8 +1,8 @@
 const Product = () => {
     return (
         <div>
-            <section className="container px-6 py-8 mx-auto lg:py-16">
-            <h3 className="text-xl font-medium text-gray-800 md:text-2xl lg:text-3xl ">Browse Our Projects</h3>
+            <section className="container px-10 mx-auto lg:mb-32">
+            <h3 className="text-xl font-medium text-gray-800 md:text-2xl lg:text-4xl ">Browse Our Projects</h3>
     
             <div className="flex items-center py-6 mt-4 -mx-2 overflow-x-auto whitespace-nowrap">
                 <button
