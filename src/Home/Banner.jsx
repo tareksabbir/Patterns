@@ -22,10 +22,10 @@ const Banner = () => {
       </div>
       <div className="container mx-auto">
         <div className="justify-between px-5 mt-5 mb-5 md:mb-24 md:px-8 md:mt-24 xs:flex-wrap md:flex item-center">
-          <h1 className="flex items-center justify-start text-xl font-bold md:text-5xl ">
+          <h1 className="flex items-center justify-start text-xl font-bold md:text-4xl ">
             Milestone
           </h1>
-          <p className="w-1/3 md:text-2xl">
+          <p className="md:w-1/3 md:text-2xl">
             Achievements from the various experiences that we have gone through
             in various cultures with different pattern and habits
           </p>
