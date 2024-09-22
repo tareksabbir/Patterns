@@ -58,7 +58,7 @@ const Hero = () => {
                         alt="Video thumbnail"/> */}
                         <a href="#" className="transition-all duration-500 lg:col-span-2 hover:scale-105">
                     <img className="object-cover object-top w-full rounded-lg shadow-md shadow-gray-200 h-80 xl:h-96"
-                        src="https://cdn.dribbble.com/userupload/4100846/file/original-23ca8941e9b4b67a237c65f38056ee1c.png?resize=752x"
+                        src="https://cdn.dribbble.com/userupload/4100848/file/original-f976ff74d25ce5f6a84926e3a779c2f9.png?resize=1905x1355"
                         alt=""/>
                 </a>
                 </div>
