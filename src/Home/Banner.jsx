@@ -3,25 +3,29 @@ import cover from "../assets/cover.png";
 const Banner = () => {
   return (
     <div >
-      <div className="container mx-auto md:mt-8 ">
-        <h1 className="font-light md:text-5xl sm:text-2xl">
+      <div className="container px-5 mx-auto mt-8 md:mt-10">
+        <h1 className="text-xl font-light md:text-5xl">
           We are on the same side
         </h1>
-        <h1 className="md:text-[12.5rem]  sm:text-[5rem] font-bold lg:mt-[-3rem]">
+        <h1 className="text-6xl md:text-[12.5rem] font-bold ">
          Design is our
         </h1>
       </div>
       
-      <div className="relative w-full lg:h-[50vh] overflow-hidden lg:mt-[-2rem]">
+      <div className="relative w-full h-[10vh] lg:h-[50vh] overflow-hidden mt-2 md:mt-5">
         <img src={cover} alt="" className="object-cover w-full h-full" />
-        <div className="container absolute top-0 left-0 right-0 mx-auto md:mt-[-4rem]">
-          <h1 className="md:text-[12.5rem] sm:text-[5rem] font-bold text-white text-shadow ">
+        <div className="container absolute top-0 left-0 right-0 mx-auto ">
+          <h1 className="text-6xl px-5 md:text-[12.5rem] font-bold text-white text-shadow ">
             Passion
           </h1>
         </div>
       </div>
+      <div className="container justify-between px-5 mx-auto mt-5 md:px-8 md:mt-24 xs:flex-wrap md:flex item-center">
+        <h1 className="flex items-center justify-start text-xl md:text-5xl font-bold w-[80%] ">Milestone</h1>
+        <p className="md:text-2xl">Achievements from the various experiences that we have gone through in various cultures with different pattern and habits</p>
+      </div>
     </div>
-     
+    
   );
 };
 

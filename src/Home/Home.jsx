@@ -21,7 +21,7 @@ const Home = () => {
         <div className="flex items-center justify-center mb-5">
           <Button onClick={handleSignOut}>Sign Out</Button>
         </div>
-      )}
+      )}http://localhost:5173/src/assets/cover.png
       <div className="flex items-center justify-center gap-2">
         <GooglePopup></GooglePopup>
         <GithubPopup></GithubPopup>
