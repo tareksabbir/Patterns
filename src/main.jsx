@@ -10,6 +10,7 @@ import ContextEmailMain from "./Authentication/ContextEmailMain";
 import Register from "./loginRegister/Register/Register";
 import Product from "./Product/Product";
 import Contact from "./Contact/Contact";
+import Blog from "./Blog/Blog";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     
       

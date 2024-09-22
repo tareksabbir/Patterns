@@ -159,7 +159,7 @@ const Footer = () => {
                   fill="#2e90fa"
                 />
               </svg>
-              <span className="text-white">Authentication</span>
+              <span className="text-white">Patterns</span>
             </a>
 
 

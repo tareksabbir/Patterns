@@ -27,7 +27,7 @@ const Header = () => {
                   fill="#2e90fa"
                 />
               </svg>
-              Authentication
+              Patterns
             </a>
 
             <nav className="hidden gap-12 lg:flex">
@@ -53,10 +53,10 @@ const Header = () => {
               </Link>
 
               <Link
-                href="#"
+                to={"/blog"}
                 className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
               >
-                Documentation
+                Blogs
               </Link>
             </nav>
 
