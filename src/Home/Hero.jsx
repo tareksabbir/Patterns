@@ -2,31 +2,68 @@ const Hero = () => {
   return (
     <div>
       <section className="bg-white dark:bg-gray-900">
-        <div className="container px-6 py-16 mx-auto text-center">
-          <div className="max-w-lg mx-auto">
-            <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">
-              Building Your Next App with our Awesome components
-            </h1>
-            <p className="mt-6 text-gray-500 dark:text-gray-300">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
-              similique obcaecati illum mollitia.
-            </p>
-            <button className="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
-              Start 14-Day free trial
-            </button>
-            <p className="mt-3 text-sm text-gray-400 ">
-              No credit card required
-            </p>
-          </div>
 
-          <div className="flex justify-center mt-10">
-            <img
-              className="object-cover w-full h-96 rounded-xl "
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-            />
-          </div>
+
+    <div className="container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
+        <div className="w-full lg:w-1/2">
+            <div className="lg:max-w-lg">
+                <h1 className="text-3xl font-semibold tracking-wide text-gray-800 dark:text-white lg:text-4xl">
+                    Easiest way to create your website
+                </h1>
+
+                <div className="mt-8 space-y-5">
+                    <p className="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span className="mx-2">Clean and Simple Layout</span>
+                    </p>
+
+                    <p className="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span className="mx-2">Just Copy Paste Codeing</span>
+                    </p>
+
+                    <p className="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span className="mx-2">Easy to Use</span>
+                    </p>
+                </div>
+            </div>
+
+            <div className="w-full mt-8 bg-transparent border rounded-md lg:max-w-sm dark:border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-400 focus-within:ring-opacity-40">
+                <form className="flex flex-col lg:flex-row">
+                    <input type="email" placeholder="Enter your email address" className="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
+
+                    <button type="button" className="h-10 px-4 py-2 m-1 text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400">
+                        Join Us
+                    </button>
+                </form>
+            </div>
         </div>
-      </section>
+
+        {/* <div className="flex items-center justify-center w-full h-96 lg:w-1/2">
+            <img className="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl" src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="glasses photo"/>
+        </div> */}
+        <div className="mt-8 lg:w-1/2 lg:px-4 lg:mt-0">
+                    {/* <img className="object-cover w-full rounded-xl h-96"
+                        src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                        alt="Video thumbnail"/> */}
+                        <a href="#" className="transition-all duration-500 lg:col-span-2 hover:scale-105">
+                    <img className="object-cover object-top w-full rounded-lg shadow-md shadow-gray-200 h-80 xl:h-96"
+                        src="https://cdn.dribbble.com/userupload/4100846/file/original-23ca8941e9b4b67a237c65f38056ee1c.png?resize=752x"
+                        alt=""/>
+                </a>
+                </div>
+    </div>
+</section>
       
     
     </div>

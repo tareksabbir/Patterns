@@ -5,15 +5,17 @@
 // import { useContext } from "react";
 
 //import Blog from "./Blog";
+
 import Contact from "./Contact";
+import Hero from "./Hero";
+
 //import Hero from "./Hero";
 import SectionCard from "./SectionCard";
 
 const Home = () => {
- // const { user, handleSignOut } = useContext(UserContext);
+  // const { user, handleSignOut } = useContext(UserContext);
   return (
     <>
-
       {/* {user && (
         <div className="flex items-center justify-center mb-5">
           <Button onClick={handleSignOut}>Sign Out</Button>
@@ -22,11 +24,11 @@ const Home = () => {
       <div className="flex items-center justify-center gap-2">
         <GooglePopup></GooglePopup>
         <GithubPopup></GithubPopup>
-      </div> */} 
-      <SectionCard></SectionCard>
-      {/* <Blog></Blog> */}
-      <Contact></Contact>
+      </div> */}
 
+      <Hero></Hero>
+      <SectionCard></SectionCard>
+      <Contact></Contact>
     </>
   );
 };
