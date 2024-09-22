@@ -1,9 +1,10 @@
 // import GithubPopup from "@/Authentication/GithubPopup";
 // import GooglePopup from "@/Authentication/GooglePopup";
-
 // import { Button } from "@/components/ui/button";
 // import { UserContext } from "@/Context/SocialSignUp";
 // import { useContext } from "react";
+
+import Contact from "./Contact";
 
 const Home = () => {
  // const { user, handleSignOut } = useContext(UserContext);
@@ -19,6 +20,8 @@ const Home = () => {
         <GooglePopup></GooglePopup>
         <GithubPopup></GithubPopup>
       </div> */}
+      
+      <Contact></Contact>
 
     </>
   );

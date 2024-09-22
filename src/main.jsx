@@ -7,6 +7,7 @@ import Home from "./Home/Home";
 
 import PasswordEmailSignUp from "./Authentication/PasswordEmailSignUp";
 import ContextEmailMain from "./Authentication/ContextEmailMain";
+import Register from "./loginRegister/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
     path: "/sign_up_2",
     element: <ContextEmailMain></ContextEmailMain>
   },
+  {
+    path: "/register",
+    element: <Register></Register>
+  },
+  
  
 ]);
 

@@ -3,7 +3,7 @@
 const Register = () => {
     return (
         <div>
-            this is Register
+            this is registration
         </div>
     );
 };
