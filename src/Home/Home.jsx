@@ -4,6 +4,7 @@
 // import { UserContext } from "@/Context/SocialSignUp";
 // import { useContext } from "react";
 
+import Blog from "./Blog";
 import Contact from "./Contact";
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
         <GooglePopup></GooglePopup>
         <GithubPopup></GithubPopup>
       </div> */}
-      
+      <Blog></Blog>
       <Contact></Contact>
 
     </>
