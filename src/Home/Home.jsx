@@ -13,6 +13,7 @@ import Hero from "./Hero";
 //import Hero from "./Hero";
 import SectionCard from "./SectionCard";
 
+
 const Home = () => {
   // const { user, handleSignOut } = useContext(UserContext);
   return (
