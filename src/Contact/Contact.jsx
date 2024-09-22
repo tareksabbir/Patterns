@@ -1,6 +1,10 @@
+import Hero from "./Hero";
+import SectionCard from "./SectionCard";
+
 const Contact = () => {
   return (
-    <div className="container mx-auto md:mt-32 ">
+    <div>
+      <div className="container mx-auto">
       <section className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-12 mx-auto">
           <div className="text-center ">
@@ -118,6 +122,9 @@ const Contact = () => {
           </div>
         </div>
       </section>
+    </div>
+    <Hero></Hero>
+    <SectionCard></SectionCard>
     </div>
   );
 };
