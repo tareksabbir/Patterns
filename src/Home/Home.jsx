@@ -4,8 +4,10 @@
 // import { UserContext } from "@/Context/SocialSignUp";
 // import { useContext } from "react";
 
-import Blog from "./Blog";
+//import Blog from "./Blog";
 import Contact from "./Contact";
+//import Hero from "./Hero";
+import SectionCard from "./SectionCard";
 
 const Home = () => {
  // const { user, handleSignOut } = useContext(UserContext);
@@ -20,8 +22,9 @@ const Home = () => {
       <div className="flex items-center justify-center gap-2">
         <GooglePopup></GooglePopup>
         <GithubPopup></GithubPopup>
-      </div> */}
-      <Blog></Blog>
+      </div> */} 
+      <SectionCard></SectionCard>
+      {/* <Blog></Blog> */}
       <Contact></Contact>
 
     </>
