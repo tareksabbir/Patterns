@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   sendEmailVerification,
+  updateProfile,
 } from "firebase/auth";
 import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -16,7 +17,7 @@ const Register = () => {
   const auth = getAuth(app);
   const [show, setShow] = useState(false);
   //------------------------------------------------------------create account------
-  const handleSignUpByEmailPass = (email, password) => {
+  const handleSignUpByEmailPass = (email, password, name) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         console.log(result.user);
@@ -26,11 +27,28 @@ const Register = () => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
+      
 
     sendEmailVerification(auth.currentUser).then(() => {
       toast.success("please verify your email");
     });
+
+    
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    })
+      .then(() => {
+        // Profile updated!
+        // ...
+      })
+      .catch((error) => {
+        if (error) {
+          toast.error("something went wrong");
+        }
+      });
   };
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const f_name = e.target.first_name.value;
@@ -44,7 +62,7 @@ const Register = () => {
     }
 
     console.log(name, email, password, checkbox);
-    handleSignUpByEmailPass(email, password);
+    handleSignUpByEmailPass(email, password, name);
   };
 
   return (
