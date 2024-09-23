@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import cover from "../../assets/cover.png";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendEmailVerification,
+} from "firebase/auth";
 import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { useState } from "react";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
   const auth = getAuth(app);
+  const [show, setShow] = useState(false);
   //------------------------------------------------------------create account------
   const handleSignUpByEmailPass = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -18,6 +26,10 @@ const Register = () => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
+
+    sendEmailVerification(auth.currentUser).then(() => {
+      toast.success("please verify your email");
+    });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,8 +40,9 @@ const Register = () => {
     const password = e.target.password.value;
     const checkbox = e.target.marketing_accept.checked;
     if (!password.length > 6) {
-      console.log("password must be more then 6 carecter");
+      toast.error("password must be more then 6 Characters");
     }
+
     console.log(name, email, password, checkbox);
     handleSignUpByEmailPass(email, password);
   };
@@ -141,12 +154,18 @@ const Register = () => {
                   </label>
 
                   <input
-                    type="password"
+                    type={show ? "text" : "password"}
                     id="Password"
                     name="password"
-                    className="w-full p-2 mt-1 text-sm border rounded-md"
+                    className="relative w-full p-2 mt-1 text-sm border rounded-md"
                     required
-                  />
+                  ></input>
+                  <span
+                    onClick={() => setShow(!show)}
+                    className="absolute ml-[-2rem] mt-3 text-xl"
+                  >
+                    {!show ? <IoEyeOutline /> : <FaRegEyeSlash />}
+                  </span>
                 </div>
 
                 <div className="col-span-6">

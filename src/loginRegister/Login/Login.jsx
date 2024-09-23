@@ -1,18 +1,27 @@
 import { Link } from "react-router-dom";
 import cover from "../../assets/cover.png";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import toast, { Toaster } from "react-hot-toast";
-const Login = () => {
-  
-  const auth = getAuth(app);
+import { useState } from "react";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
+const Login = () => {
+  const [show, setShow] = useState(false);
+  const [email, setEmail] = useState("");
+  const auth = getAuth(app);
+  //email login ------------------------------------------------------
   const handleSignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-       console.log(result.user)
-       toast.success("welcome to the pattern");
+        console.log(result.user);
+        toast.success("welcome to the pattern");
       })
       .catch((error) => {
         console.log(error);
@@ -27,7 +36,20 @@ const Login = () => {
     const password = e.target.password.value;
     handleSignIn(email, password);
   };
- 
+
+  // forget password-----------------------------------------------------------
+
+  const handleForgetPassword = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("please check your email")
+      })
+      .catch((error) => {
+        if(error){
+          toast.error("something went wrong");
+        }
+      });
+  };
 
   return (
     <div>
@@ -88,6 +110,7 @@ const Login = () => {
                     type="email"
                     id="Email"
                     name="email"
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full p-2 mt-1 text-sm border rounded-md"
                   />
                 </div>
@@ -101,11 +124,18 @@ const Login = () => {
                   </label>
 
                   <input
-                    type="password"
+                    type={show ? "text" : "password"}
                     id="Password"
                     name="password"
-                    className="w-full p-2 mt-1 text-sm border rounded-md"
-                  />
+                    className="relative w-full p-2 mt-1 text-sm border rounded-md"
+                    required
+                  ></input>
+                  <span
+                    onClick={() => setShow(!show)}
+                    className="absolute ml-[-2rem] mt-3 text-xl"
+                  >
+                    {!show ? <IoEyeOutline /> : <FaRegEyeSlash />}
+                  </span>
                 </div>
 
                 <div className="col-span-6">
@@ -130,6 +160,12 @@ const Login = () => {
                   </button>
 
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0">
+                    <Link
+                      onClick={handleForgetPassword}
+                      className="mr-2 font-bold text-gray-700"
+                    >
+                      Forget Password
+                    </Link>
                     Already have an account?
                     <Link
                       to={"/register"}
