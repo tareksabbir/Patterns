@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator"
 const Banner = () => {
   return (
     <div>
-      <div className="container px-5 mx-auto mt-8 md:mt-10">
+      <div className="container px-5 mx-auto mt-8 md:mt-[6rem] ">
         <h1 className="text-xl font-light md:text-5xl">
           We are on the same side
         </h1>
