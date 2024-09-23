@@ -1,14 +1,49 @@
 import { Link } from "react-router-dom";
-import cover from "../../assets/cover.png"
+import cover from "../../assets/cover.png";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { useState } from "react";
+import app from "@/Firebase/Firebase.init";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
-    return (
-        <div>
+  const auth = getAuth(app);
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
+
+  //------------------------------------------------------------create account------
+  const handleSignUpByEmailPass = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const newUser = result.user;
+        setUser(newUser);
+      })
+      .catch((error) => {
+        setError(error.massage);
+      });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const f_name = e.target.first_name.value;
+    const l_name = e.target.last_name.value;
+    const name = f_name + " " + l_name;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const checkbox = e.target.marketing_accept.checked;
+    if (!password.length > 6) {
+      console.log("password must be more then 6 carecter");
+    }
+    console.log(name, email, password, checkbox);
+    handleSignUpByEmailPass(email, password);
+    console.log(user, error);
+  };
+
+  return (
+    <div>
       <section className="bg-white">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
           <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
             <img
-              alt=""
+              alt="cover"
               src={cover}
               className="absolute inset-0 object-cover w-full h-full"
             />
@@ -16,8 +51,7 @@ const Register = () => {
 
           <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
             <div className="max-w-xl lg:max-w-3xl">
-              <Link
-               className="block text-blue-600" to={"/"}>
+              <Link className="block text-blue-600" to={"/"}>
                 <span className="sr-only">Home</span>
                 <svg
                   fill="none"
@@ -42,33 +76,11 @@ const Register = () => {
                 This is a practice firebase auth form where a person can
                 register there account via email and other information
               </p>
-              <div className="flex gap-2">
-              <button className="flex items-center justify-center px-4 py-1 mt-8 transition border rounded-md outline-none -2 ring-gray-400 ring-offset-2 focus:ring-2 hover:border-transparent hover:bg-black hover:text-white">
-                <img
-                  className="h-5 mr-2"
-                  src="https://static.cdnlogo.com/logos/g/35/google-icon.svg"
-                  alt
-                />{" "}
-                Register with Google
-              </button>
-              <button className="flex items-center justify-center px-4 py-1 mt-8 transition border rounded-md outline-none -2 ring-gray-400 ring-offset-2 focus:ring-2 hover:border-transparent hover:bg-black hover:text-white">
-                <img
-                  className="h-5 mr-2"
-                  src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                  alt
-                />{" "}
-                Register with Github
-              </button>
-              </div>
-              <div className="relative flex h-px mt-8 bg-gray-200 place-items-center">
-                <div className="absolute h-6 text-sm text-center text-gray-500 -translate-x-1/2 bg-white left-1/2 w-14">
-                  or
-                </div>
-              </div>
+              <SocialLogin></SocialLogin>
 
               {/* form */}
               <form
-                
+                onSubmit={handleSubmit}
                 className="grid grid-cols-6 gap-6 mt-8"
               >
                 <div className="col-span-6 sm:col-span-3">
@@ -84,6 +96,7 @@ const Register = () => {
                     id="FirstName"
                     name="first_name"
                     className="w-full p-2 mt-1 text-sm border rounded-md"
+                    required
                   />
                 </div>
 
@@ -100,6 +113,7 @@ const Register = () => {
                     id="LastName"
                     name="last_name"
                     className="w-full p-2 mt-1 text-sm border rounded-md"
+                    required
                   />
                 </div>
 
@@ -117,6 +131,7 @@ const Register = () => {
                     id="Email"
                     name="email"
                     className="w-full p-2 mt-1 text-sm border rounded-md"
+                    required
                   />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
@@ -133,6 +148,7 @@ const Register = () => {
                     id="Password"
                     name="password"
                     className="w-full p-2 mt-1 text-sm border rounded-md"
+                    required
                   />
                 </div>
 
@@ -174,7 +190,10 @@ const Register = () => {
 
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                     Already have an account?
-                    <Link to={"/login"} className="ml-2 font-bold text-gray-700">
+                    <Link
+                      to={"/login"}
+                      className="ml-2 font-bold text-gray-700"
+                    >
                       Log in
                     </Link>
                     .
@@ -186,7 +205,7 @@ const Register = () => {
         </div>
       </section>
     </div>
-    );
+  );
 };
 
 export default Register;

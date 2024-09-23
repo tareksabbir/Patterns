@@ -1,8 +1,38 @@
 import { Link } from "react-router-dom";
-import cover from "../../assets/cover.png"
+import cover from "../../assets/cover.png";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import app from "@/Firebase/Firebase.init";
+import SocialLogin from "../SocialLogin/SocialLogin";
+
 const Login = () => {
-    return (
-        <div>
+  const [user, setUser] = useState(null);
+  const auth = getAuth(app);
+
+  const handleSignIn = (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    handleSignIn(email, password);
+  };
+  {
+    user && alert("user logIn");
+  }
+
+  return (
+    <div>
       <section className="bg-white">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
           <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
@@ -15,8 +45,7 @@ const Login = () => {
 
           <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
             <div className="max-w-xl lg:max-w-3xl">
-              <Link
-               className="block text-blue-600" to={"/"}>
+              <Link className="block text-blue-600" to={"/"}>
                 <span className="sr-only">Home</span>
                 <svg
                   fill="none"
@@ -41,37 +70,13 @@ const Login = () => {
                 This is a practice firebase auth form where a person can
                 register there account via email and other information
               </p>
-              <div className="flex gap-2">
-              <button className="flex items-center justify-center px-4 py-1 mt-8 transition border rounded-md outline-none -2 ring-gray-400 ring-offset-2 focus:ring-2 hover:border-transparent hover:bg-black hover:text-white">
-                <img
-                  className="h-5 mr-2"
-                  src="https://static.cdnlogo.com/logos/g/35/google-icon.svg"
-                  alt
-                />{" "}
-                Register with Google
-              </button>
-              <button className="flex items-center justify-center px-4 py-1 mt-8 transition border rounded-md outline-none -2 ring-gray-400 ring-offset-2 focus:ring-2 hover:border-transparent hover:bg-black hover:text-white">
-                <img
-                  className="h-5 mr-2"
-                  src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                  alt
-                />{" "}
-                Register with Github
-              </button>
-              </div>
-              <div className="relative flex h-px mt-8 bg-gray-200 place-items-center">
-                <div className="absolute h-6 text-sm text-center text-gray-500 -translate-x-1/2 bg-white left-1/2 w-14">
-                  or
-                </div>
-              </div>
+              <SocialLogin></SocialLogin>
 
               {/* form */}
               <form
-                
+                onSubmit={handleSubmit}
                 className="grid grid-cols-6 gap-6 mt-8"
               >
-               
-
                 <div className="col-span-6 sm:col-span-3">
                   <label
                     htmlFor="Email"
@@ -121,8 +126,6 @@ const Login = () => {
                   </label>
                 </div>
 
-                
-
                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                   <button className="inline-block px-12 py-3 text-sm font-medium text-white transition bg-blue-600 border border-blue-600 rounded-md shrink-0 hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
                     Login account
@@ -130,7 +133,10 @@ const Login = () => {
 
                   <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                     Already have an account?
-                    <Link to={"/register"} className="ml-2 font-bold text-gray-700">
+                    <Link
+                      to={"/register"}
+                      className="ml-2 font-bold text-gray-700"
+                    >
                       Sign Up
                     </Link>
                     .
@@ -142,7 +148,7 @@ const Login = () => {
         </div>
       </section>
     </div>
-    );
+  );
 };
 
 export default Login;

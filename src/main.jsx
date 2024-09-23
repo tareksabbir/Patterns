@@ -5,8 +5,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";
 import Home from "./Home/Home";
 
-import PasswordEmailSignUp from "./Authentication/PasswordEmailSignUp";
-import ContextEmailMain from "./Authentication/ContextEmailMain";
 import Register from "./loginRegister/Register/Register";
 import Product from "./Product/Product";
 import Contact from "./Contact/Contact";
@@ -39,14 +37,7 @@ const router = createBrowserRouter([
       
     ],
   },
-  {
-    path: "/sign_up",
-    element: <PasswordEmailSignUp></PasswordEmailSignUp>
-  },
-  {
-    path: "/sign_up_2",
-    element: <ContextEmailMain></ContextEmailMain>
-  },
+ 
   {
     path: "/register",
     element: <Register></Register>
