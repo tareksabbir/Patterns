@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 import cover from "../../assets/cover.png";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
 import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
-
+import toast, { Toaster } from "react-hot-toast";
 const Login = () => {
-  const [user, setUser] = useState(null);
+  
   const auth = getAuth(app);
 
   const handleSignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        const user = result.user;
-        setUser(user);
+       console.log(result.user)
+       toast.success("welcome to the pattern");
       })
       .catch((error) => {
         console.log(error);
+        toast.error(`${error.massage}`);
       });
   };
 
@@ -27,9 +27,7 @@ const Login = () => {
     const password = e.target.password.value;
     handleSignIn(email, password);
   };
-  {
-    user && alert("user logIn");
-  }
+ 
 
   return (
     <div>
@@ -143,6 +141,7 @@ const Login = () => {
                   </p>
                 </div>
               </form>
+              <Toaster></Toaster>
             </div>
           </main>
         </div>

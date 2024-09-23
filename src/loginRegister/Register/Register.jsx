@@ -1,24 +1,22 @@
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import cover from "../../assets/cover.png";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { useState } from "react";
 import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const auth = getAuth(app);
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
-
   //------------------------------------------------------------create account------
   const handleSignUpByEmailPass = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        const newUser = result.user;
-        setUser(newUser);
+        console.log(result.user);
+        toast.success("Account created successfully");
       })
       .catch((error) => {
-        setError(error.massage);
+        const errorMessage = error.message;
+        console.log(errorMessage);
       });
   };
   const handleSubmit = (e) => {
@@ -34,7 +32,6 @@ const Register = () => {
     }
     console.log(name, email, password, checkbox);
     handleSignUpByEmailPass(email, password);
-    console.log(user, error);
   };
 
   return (
@@ -200,6 +197,7 @@ const Register = () => {
                   </p>
                 </div>
               </form>
+              <Toaster />
             </div>
           </main>
         </div>

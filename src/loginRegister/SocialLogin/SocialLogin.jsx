@@ -5,23 +5,21 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const SocialLogin = () => {
   const auth = getAuth(app);
-  const [user, setUser] = useState(null);
-
   const googleProvider = new GoogleAuthProvider();
   const gitProvider = new GithubAuthProvider();
 
   const handleSignUp = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        const loginUser = result.user;
-        setUser(loginUser);
+        console.log(result.user);
+        toast.success("welcome to the pattern");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(`${error.massage}`);
       });
   };
 
@@ -30,15 +28,14 @@ const SocialLogin = () => {
   const handleGitSignUp = () => {
     signInWithPopup(auth, gitProvider)
       .then((result) => {
-        const loginUser = result.user;
-        setUser(loginUser);
+        console.log(result.user);
+        toast.success("welcome to the pattern");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(`${error.massage}`);
       });
   };
 
-  console.log(user);
   return (
     <div>
       {" "}
@@ -70,6 +67,7 @@ const SocialLogin = () => {
         <div className="absolute h-6 text-sm text-center text-gray-500 -translate-x-1/2 bg-white left-1/2 w-14">
           or
         </div>
+        <Toaster></Toaster>
       </div>
     </div>
   );
