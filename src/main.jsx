@@ -12,10 +12,12 @@ import Login from "./loginRegister/Login/Login";
 import AuthProvider from "./context/AuthProvider";
 import Order from "./Order/Order";
 import PrivetRoute from "./Route/PrivetRoute";
+import Error from "./Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <Error></Error>,
     element: <Root></Root>,
     children: [
       {
