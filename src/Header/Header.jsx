@@ -67,16 +67,31 @@ const Header = () => {
               >
                 Blogs
               </Link>
+              {user && (
+                <Link
+                  to={"/order"}
+                  className="font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+                >
+                  Orders
+                </Link>
+              )}
             </nav>
 
             <div className="-ml-8 hidden flex-col gap-2.5 sm:flex-row sm:justify-center lg:flex lg:justify-start">
               {user ? (
-                <Link
-                  onClick={handleLogOut}
-                  className="flex items-center px-5 py-2 text-sm font-semibold text-gray-500 border rounded-xl"
-                >
-                  Sign out
-                </Link>
+                <>
+                  <img
+                    src={user?.photoURL}
+                    alt=""
+                    className="w-[2.2rem] h-[2.2rem] rounded-full"
+                  />
+                  <Link
+                    onClick={handleLogOut}
+                    className="flex items-center px-5 py-2 text-sm font-semibold text-gray-500 border rounded-xl"
+                  >
+                    Sign out
+                  </Link>
+                </>
               ) : (
                 <Link
                   to={"/login"}

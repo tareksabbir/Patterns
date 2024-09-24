@@ -10,6 +10,8 @@ import Contact from "./Contact/Contact";
 import Blog from "./Blog/Blog";
 import Login from "./loginRegister/Login/Login";
 import AuthProvider from "./context/AuthProvider";
+import Order from "./Order/Order";
+import PrivetRoute from "./Route/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+      },
+      {
+        path: "/order",
+        element: (
+          <PrivetRoute>
+            <Order></Order>
+          </PrivetRoute>
+        ),
       },
     ],
   },
