@@ -8,9 +8,10 @@ import {
 import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import toast, { Toaster } from "react-hot-toast";
-import { useState } from "react";
+import {  useState } from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa6";
+;
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -31,10 +32,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const email = e.target.email.value;
     const password = e.target.password.value;
-    handleSignIn(email, password);
+    handleSignIn(email,password)
   };
 
   // forget password-----------------------------------------------------------
@@ -42,10 +42,10 @@ const Login = () => {
   const handleForgetPassword = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        toast.success("please check your email")
+        toast.success("please check your email");
       })
       .catch((error) => {
-        if(error){
+        if (error) {
           toast.error("something went wrong");
         }
       });

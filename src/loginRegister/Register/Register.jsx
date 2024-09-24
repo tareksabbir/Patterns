@@ -1,54 +1,17 @@
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import cover from "../../assets/cover.png";
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  sendEmailVerification,
-  updateProfile,
-} from "firebase/auth";
-import app from "@/Firebase/Firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa6";
+import { UseContext } from "@/context/AuthProvider";
 
 const Register = () => {
-  const auth = getAuth(app);
   const [show, setShow] = useState(false);
+  const { createUser } = useContext(UseContext);
   //------------------------------------------------------------create account------
-  const handleSignUpByEmailPass = (email, password, name) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        console.log(result.user);
-        toast.success("Account created successfully");
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-      
 
-    sendEmailVerification(auth.currentUser).then(() => {
-      toast.success("please verify your email");
-    });
-
-    
-    updateProfile(auth.currentUser, {
-      displayName: name,
-    })
-      .then(() => {
-        // Profile updated!
-        // ...
-      })
-      .catch((error) => {
-        if (error) {
-          toast.error("something went wrong");
-        }
-      });
-  };
-
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     const f_name = e.target.first_name.value;
@@ -60,9 +23,17 @@ const Register = () => {
     if (!password.length > 6) {
       toast.error("password must be more then 6 Characters");
     }
-
     console.log(name, email, password, checkbox);
-    handleSignUpByEmailPass(email, password, name);
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Account created successfully ");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
 
   return (
