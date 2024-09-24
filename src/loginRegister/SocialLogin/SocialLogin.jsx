@@ -6,17 +6,20 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const gitProvider = new GithubAuthProvider();
+  const navigate = useNavigate()
 
   const handleSignUp = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log(result.user);
         toast.success("welcome to the pattern");
+        navigate('/')
       })
       .catch((error) => {
         toast.error(`${error.massage}`);
@@ -30,6 +33,7 @@ const SocialLogin = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("welcome to the pattern");
+        navigate('/')
       })
       .catch((error) => {
         toast.error(`${error.massage}`);

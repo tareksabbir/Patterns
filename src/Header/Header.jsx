@@ -1,8 +1,17 @@
+import { UseContext } from "@/context/AuthProvider";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  
-  
+  const { user, logOut } = useContext(UseContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("sign out");
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div>
@@ -61,16 +70,21 @@ const Header = () => {
             </nav>
 
             <div className="-ml-8 hidden flex-col gap-2.5 sm:flex-row sm:justify-center lg:flex lg:justify-start">
-              <Link className="px-4 py-3 text-sm font-semibold text-center text-gray-500 transition duration-100 rounded-lg outline-none ring-indigo-300 hover:text-indigo-500 focus-visible:ring active:text-indigo-600 md:text-base">
-                Sign in
-              </Link>
-
-              <Link
-                to={"/register"}
-                className="flex items-center px-5 py-2 text-sm font-semibold text-gray-500 border rounded-xl"
-              >
-                Sign up
-              </Link>
+              {user ? (
+                <Link
+                  onClick={handleLogOut}
+                  className="flex items-center px-5 py-2 text-sm font-semibold text-gray-500 border rounded-xl"
+                >
+                  Sign out
+                </Link>
+              ) : (
+                <Link
+                  to={"/login"}
+                  className="flex items-center px-5 py-2 text-sm font-semibold text-gray-500 border rounded-xl"
+                >
+                  Sign in
+                </Link>
+              )}
             </div>
 
             <button
