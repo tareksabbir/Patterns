@@ -126,6 +126,7 @@ const Error = () => {
                   />
                 </svg>
               </Link>
+             
 
               <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 Our friendly team is here to help.
